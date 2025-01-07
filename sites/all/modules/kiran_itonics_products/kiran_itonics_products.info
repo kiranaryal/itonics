@@ -1,0 +1,7 @@
+name = Kiran ITONICS Products
+description = A custom module to manage products with CRUD functionality.
+core = 7.x
+package = Custom
+dependencies[] = views
+dependencies[] = libraries
+dependencies[] = ctools

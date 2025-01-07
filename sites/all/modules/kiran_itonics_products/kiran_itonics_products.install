@@ -1,0 +1,77 @@
+<?php
+
+/**
+ * Implements hook_schema().
+ */
+function kiran_itonics_products_schema() {
+  $schema['kiran_itonics_products'] = array(
+    'description' => 'Table to store product information.',
+    'fields' => array(
+      'id' => array(
+        'type' => 'serial',
+        'not null' => TRUE,
+        'description' => 'Primary key: Unique product ID.',
+      ),
+      'title' => array(
+        'type' => 'varchar',
+        'length' => 255,
+        'not null' => TRUE,
+        'description' => 'Title of the product.',
+      ),
+      'image' => array(
+        'type' => 'text',
+        'not null' => FALSE,
+        'description' => 'Product image file path.',
+      ),
+      'summary' => array(
+        'type' => 'text',
+        'not null' => FALSE,
+        'description' => 'Short summary of the product.',
+      ),
+      'description' => array(
+        'type' => 'text',
+        'not null' => FALSE,
+        'description' => 'Detailed description of the product.',
+      ),
+      'category' => array(
+        'type' => 'text',
+        'not null' => FALSE,
+        'description' => 'Categories assigned to the product.',
+      ),
+      'type' => array(
+        'type' => 'varchar',
+        'length' => 255,
+        'not null' => TRUE,
+        'description' => 'Product type.',
+      ),
+      'owner_email' => array(
+        'type' => 'varchar',
+        'length' => 255,
+        'not null' => TRUE,
+        'description' => 'Email of the product owner.',
+      ),
+      'expiry_date' => array(
+        'type' => 'int',
+        'not null' => FALSE,
+        'description' => 'Product expiry date as a timestamp.',
+      ),
+    ),
+    'primary key' => array('id'),
+  );
+
+  return $schema;
+}
+
+/**
+ * Implements hook_install().
+ */
+function kiran_itonics_products_install() {
+  drupal_install_schema('kiran_itonics_products');
+}
+
+/**
+ * Implements hook_uninstall().
+ */
+function kiran_itonics_products_uninstall() {
+  drupal_uninstall_schema('kiran_itonics_products');
+}
